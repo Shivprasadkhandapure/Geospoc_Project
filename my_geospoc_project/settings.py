@@ -138,7 +138,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# For reCatpcha I remove the site key and secret key
+# For Google reCatpcha. I remove the site key and secret key for security purpose
 # login on https://developers.google.com/recaptcha/?refresh=1 and get both keys
 
 NORECAPTCHA_SITE_KEY = '<recatpcha site key>'
