@@ -14,6 +14,9 @@ class UserProfile(models.Model):
     cover_letter = models.FileField(upload_to='Cover_letter/', blank=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
     description = models.CharField(max_length=255, blank=True)
+    # IP address and Location
+    ip_address = models.GenericIPAddressField(protocol='IPv4', null=True)
+    location = models.CharField(max_length=100, blank=True, null=True)
     Rating_CHOICES = (
         (1, 'Poor'),
         (2, 'Average'),
