@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>GeoSpoc</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<style>
+    h1{
+        text-align: center;
+        color: darkblue;
+    }
+</style>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">GeoSpoc India</a>
+    </div>
+    <ul class="nav navbar-nav">
+      
+      <li><a href="{% url 'geospoc_app:home' %}">Home</a></li>
+      <li><a href="{% url 'geospoc_app:register' %}">Register</a></li>
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'geospoc_app:profile' %}">Profile</a></li>
+            <li><a href="{% url 'geospoc_app:userprofiles' %}">User Profiles</a></li>
+        <li><a href="{% url 'geospoc_app:logout' %}">Logout</a></li>
+
+      <li class="nav-item">
+        <a class="nav-link " href="#">Hello : {{ user.username }}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="#">Mail-Id : {{ user.email }}</a>
+      </li>
+        {% else %}
+      <li><a href="{% url 'geospoc_app:login' %}">Login</a></li>
+        {% endif %}
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+</div>
+{% block body_block %}
+
+
+{% endblock %}
+</body>
+</html>

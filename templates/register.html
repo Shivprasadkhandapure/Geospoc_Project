@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block body_block %}
+    <style>
+    input{
+        width: max-content;
+        margin-left: 15px;
+    }
+    textarea{
+        margin-bottom: 10px;
+        margin-left: 10px;
+        text-align: center;
+        color: black;
+        width: max-content;
+    }
+
+
+    </style>
+    <div class="container">
+    <form method="post" enctype="multipart/form-data">
+        {{ userform.as_p }}
+        {{ user_profile_form.as_p }}
+        {% csrf_token %}
+    <input class="btn btn-warning" type="submit" value="REGISTER">
+    </form>
+{% endblock %}
+</div>
+</div>

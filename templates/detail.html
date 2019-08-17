@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block body_block %}
+<style>
+
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #83d1f2;
+  color: black;
+}
+
+    h1{
+        text-align: center;
+        color: black;
+    }
+</style>
+
+
+<table border="1" id="customers">
+<h1>User Profile Detail</h1>
+<thead>
+    <th>Name</th>
+    <th>Email</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Staff Status</th>
+    <th>Active User</th>
+</thead>
+<tr>
+    <td>{{ user.username }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.first_name}}</td>
+    <td>{{ user.last_name}}</td>
+    <td>{{ user.is_staff}}</td>
+    <td>{{ user.is_active}}</td>
+</tr>
+</table>
+
+{% endblock %}

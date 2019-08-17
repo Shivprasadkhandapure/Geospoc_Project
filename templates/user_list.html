@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block body_block %}
+
+<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #83d1f2;
+  color: black;
+}
+
+    h1{
+        text-align: center;
+        color: green;
+    }
+</style>
+
+
+<form method="GET" action="">
+<input type="text" name="search_object" placeholder="Search">
+</form><br>
+    <br>
+
+<table border="1" id="customers">
+
+<thead>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Web Address</th>
+    <th>Attachment</th>
+    <th>Uploaded at</th>
+    <th>Cover Letter</th>
+    <th>Feedback</th>
+    <th>Rating</th>
+</thead>
+    {% for user in object_list %}
+<tr>
+    <td>{{ user.name }}</td>
+    <td>{{ user.user }}</td>
+    <td>{{ user.web_address }}</td>
+    <td>{{ user.attachment }}</td>
+    <td>{{ user.uploaded_at }}</td>
+    <td>{{ user.cover_letter }}</td>
+    <td>{{ user.description }}</td>
+    <td>{{ user.rating }}</td>
+</tr>
+    {% endfor %}
+</table>
+{% endblock %}
