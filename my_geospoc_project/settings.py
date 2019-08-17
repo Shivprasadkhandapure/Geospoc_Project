@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'geospoc_app.apps.GeospocAppConfig',
+    'nocaptcha_recaptcha',
 ]
 
 MIDDLEWARE = [
@@ -136,3 +137,9 @@ STATIC_URL = '/static/'
 # Media file
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# For reCatpcha I remove the site key and secret key
+# login on https://developers.google.com/recaptcha/?refresh=1 and get both keys
+
+NORECAPTCHA_SITE_KEY = '<recatpcha site key>'
+NORECAPTCHA_SECRET_KEY = '<recatpcha secret key>'
