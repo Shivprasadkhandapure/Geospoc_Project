@@ -7,6 +7,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 
+import socket
+import geocoder
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 
@@ -76,6 +79,29 @@ def loginView(request):
         else:
             return HttpResponse("your email or password is incorrect")
     return render(request, 'login.html', {})
+
+# IP_Address view
+def get_Host_name_IP():
+    try:
+        host_name = socket.gethostname()
+        host_ip = socket.gethostbyname(host_name)
+
+        return host_ip
+    except:
+        return 0
+
+# Location View
+def get_Host_location():
+    g = geocoder.ip('me')
+    ip_address = g.ip
+    ip_location_city = g.city
+    ip_location_country = g.country
+    ip_location_state = g.state
+    ip_location_postal = g.postal
+
+    ip_location = ip_location_city + ',' + ip_location_state + ',' + ip_location_country + ',' + ip_location_postal
+    return ip_address, ip_location
+
 
 
 # Log Out view
