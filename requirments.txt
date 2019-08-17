@@ -14,3 +14,4 @@ sqlparse==0.3.0
 urllib3==1.25.3
 geocoder==1.38.1
 socket==1.0.0
+django-nocaptcha-recaptcha==0.0.20
