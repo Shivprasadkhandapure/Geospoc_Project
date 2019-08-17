@@ -12,3 +12,5 @@ requests==2.22.0
 six==1.12.0
 sqlparse==0.3.0
 urllib3==1.25.3
+geocoder==1.38.1
+socket==1.0.0
