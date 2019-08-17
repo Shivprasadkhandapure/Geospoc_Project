@@ -9,6 +9,7 @@ from django.urls import reverse
 
 import socket
 import geocoder
+from nocaptcha_recaptcha.fields import NoReCaptchaField
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
@@ -42,6 +43,8 @@ def userlist(request):
 def register(request):
     userform = UserForm()
     user_profile_form = UserProfileForm()
+    captcha = NoReCaptchaField()
+    #print(captcha)
     if request.method == 'POST':
         userform = UserForm(data=request.POST)
         user_profile_form = UserProfileForm(data=request.POST)
